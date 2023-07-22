@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}|| Home{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="container my-5">
+            {% if user.is_authenticated %}
+            <div class="container">
+              <button type="button" class="btn btn-primary mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="form_f()">
+                Write Blog
+              </button>
+            </div>
+            {% endif %}
+            {% if blogs %}
+            <div class="row">
+                {% for blog in blogs %}
+                    <div class="col-sm-8 mx-auto my-3 border-0 ">
+                        <div class="card border-1 m-1 p-3" href="#">
+                            <img src="{{blog.image.url}}" class="card-img-top rounded-1 image-fluid" style="width:100px" alt="">
+                            <div class="card-body p-0">
+                                <h6 class="card-text"><strong>{{blog.title}}</strong></h6>
+                                <p class="text-justify">{{blog.description|safe | slice:":300"}}{% if blog.description|length > 300 %}...{% endif %}<a class="ms-2" href="{% url 'blog_details' blog.id %}"><strong>Continue Reading</strong></a></p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h3 class="text-center my-3">No Blogs found !!</h3>
+            {% endif %}
+        </div>
+    </div>
+    
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="height:auto">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Blog</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="add_blog" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table">
+                    {{form}}
+                </table>
+            <input type="submit" class = "btn btn-primary">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+{% block extrajs %}
+<script>
+  function form_f(){
+    title = document.getElementById("id_title")
+    description = document.getElementById("id_description")
+    image = document.getElementById("id_image")
+    category = document.getElementById("id_category")
+    author = document.getElementById("id_author")
+    title.classList.add("form-control")
+    description.classList.add("form-control")
+    category.classList.add("form-select")
+    author.classList.add("form-select")
+    image.classList.add("form-control-file")
+    
+  }
+</script>
+{% endblock extrajs %}
