@@ -12,7 +12,7 @@
 <body>
       <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-sm-top">
             <div class="container-fluid justify-content-around mx-md-5">
-              <a class="navbar-brand fs-2" href="#"><strong>Blogify</strong></a>
+              <a class="navbar-brand fs-2" href="{% url 'blogify_home' %}"><strong>Blogify</strong></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -24,7 +24,7 @@
                   </li>
                   {% endif %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">About</a>
                   </li>
                   {% if user.is_authenticated %}
                   <li class="nav-item dropdown">
@@ -51,8 +51,8 @@
             </div>
           </nav>
       {% block content %}{% endblock content %}
-      <footer class="">
-            <p class="text-center">&copy; Blogify 2023</p>
+      <footer class="bg-light">
+            <p class="text-center my-3">&copy; Blogify 2023</p>
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
       {% block extrajs %}{% endblock extrajs %}

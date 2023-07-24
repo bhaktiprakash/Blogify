@@ -38,3 +38,4 @@ def blog_details(request,id):
         'blog' : bg,
     }
     return render(request,'blog/blog.html',context)
+

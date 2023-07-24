@@ -16,3 +16,9 @@ a:hover{
     color: blue;
     text-decoration: underline;
 }
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}

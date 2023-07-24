@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'user',
     'django_summernote',
+    'about'
 ]
 
 MIDDLEWARE = [
@@ -140,5 +141,4 @@ SUMMERNOTE_CONFIG = {
         # Change editor size
         'width': '100%',
     },
-    
 }

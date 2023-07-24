@@ -51,3 +51,6 @@ def signin(request):
 def signout(request):
     logout(request)
     return render(request,'user/signin.html')
+
+def profile(request):
+     return render(request,'user/profile.html')
