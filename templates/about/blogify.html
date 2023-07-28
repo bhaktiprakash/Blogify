@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 <div>
+    <center class="text-dark mt-5"><h2>Welcome to <b><i>BLOGIFY</i></b></h2></center>
+    <i class="fa-brands fa-facebook-f"></i>
 <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel">
     <div class="carousel-inner">
       {% comment %} <div class="carousel-item active">
         <img src="{% static 'image/logo.png' %}" class="d-block w-100" alt="...">
       </div> {% endcomment %}
       <div class="carousel-item active">
-        <img src="{% static 'image/background6.jpg' %}" class="d-block w-100" alt="...">
+        <img src="{% static 'image/background6.jpg' %}" class="d-block w-100 image-fluid" alt="...">
       </div>
       {% comment %} <div class="carousel-item">
         <img src="..." class="d-block w-100" alt="...">

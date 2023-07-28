@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
-
+from blog.models import blog
 # Create your views here.
 def signup(request):
     if request.method == "POST":
@@ -53,4 +53,9 @@ def signout(request):
     return render(request,'user/signin.html')
 
 def profile(request):
-     return render(request,'user/profile.html')
+     blogs = blog.objects.filter(author=request.user)
+     context = {
+          'blogs' : blogs,
+
+     }
+     return render(request,'user/profile.html',context)

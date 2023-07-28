@@ -29,6 +29,9 @@ def add_blog(request):
         # )
         # b.save()
         f = blogForm(request.POST,request.FILES)
+        f=f.save(commit=False)
+        f.author = request.user
+        print(f)
         f.save()
     return redirect('home')
 

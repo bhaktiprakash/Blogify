@@ -134,7 +134,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 SUMMERNOTE_CONFIG = {
     # You can put custom Summernote settings
     'summernote': {
